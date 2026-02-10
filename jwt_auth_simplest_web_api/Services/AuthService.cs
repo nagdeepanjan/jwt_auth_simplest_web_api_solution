@@ -44,7 +44,12 @@ namespace jwt_auth_simplest_web_api.Services
 
         private string CreateToken(User user)
         {
-            var claims = new List<Claim> { new Claim(ClaimTypes.Name, user.UserName), new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) };
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName), 
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Role, user.Role)
+            };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetValue<string>("Jwt:Key")!));
 

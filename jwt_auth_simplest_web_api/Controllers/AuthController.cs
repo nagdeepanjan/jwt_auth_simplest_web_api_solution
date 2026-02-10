@@ -42,8 +42,18 @@ namespace jwt_auth_simplest_web_api.Controllers
         [Authorize]
         public IActionResult AuthenticatedOnlyEndpoint()
         {
-            return Ok("You are authenticated");
+            return Ok("You are Authenticated");
         }
-        
+
+
+        [HttpGet("admin-only")]
+        [Authorize(Roles="Admin")]
+        public IActionResult AdminOnlyEndpoint()
+        {
+            return Ok("You are an Admin");
+        }
+
+
+
     }
 }
