@@ -1,0 +1,10 @@
+@jwt_auth_simplest_web_api_HostAddress = https://localhost:7031
+
+GET {{jwt_auth_simplest_web_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{jwt_auth_simplest_web_api_HostAddress}}/weatherforecast
+
+###
