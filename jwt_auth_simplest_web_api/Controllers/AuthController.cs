@@ -4,6 +4,7 @@ using System.Text;
 using jwt_auth_simplest_web_api.Entities;
 using jwt_auth_simplest_web_api.Models;
 using jwt_auth_simplest_web_api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,12 @@ namespace jwt_auth_simplest_web_api.Controllers
         }
 
 
+        [HttpGet]
+        [Authorize]
+        public IActionResult AuthenticatedOnlyEndpoint()
+        {
+            return Ok("You are authenticated");
+        }
         
     }
 }
